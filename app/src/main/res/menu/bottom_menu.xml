@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/out_home"/>
+        <item
+            android:id="@+id/shorts"
+            android:title="Diagnosis"
+            android:icon="@drawable/diagnosis_icon"/>
+        <item
+            android:id="@+id/fab"
+            android:title=""
+            android:enabled="false"/>
+        <item
+            android:id="@+id/subscriptions"
+            android:title="My Garden"
+            android:icon="@drawable/my_garden_icon"/>
+        <item
+            android:id="@+id/library"
+            android:title="Feed"
+            android:icon="@drawable/out_chat"/>
+
+</menu>

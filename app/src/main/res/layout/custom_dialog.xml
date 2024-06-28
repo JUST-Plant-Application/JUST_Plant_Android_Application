@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="340dp"
+    android:layout_height="640dp"
+    android:layout_gravity="center"
+    android:background="@drawable/plantbackground"
+    android:backgroundTintMode="screen"
+    android:backgroundTint="@color/black"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
+    >
+
+
+    <ImageButton
+        android:id="@+id/close_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@android:color/transparent"
+        android:foregroundGravity="center"
+        android:paddingLeft="8dp"
+        android:src="@drawable/close"
+        android:layout_alignParentRight="true"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/instructions_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Welcome to JUST-Plant application!"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:paddingTop="70dp">
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:paddingLeft="6dp"
+            android:paddingBottom="10dp"
+            android:text="First, we want to display Some Notes: 😊"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/instructions_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="6dp"
+            android:paddingBottom="2dp"
+            android:text="Identify Button:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/instructions_text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="12dp"
+            android:paddingBottom="20dp"
+            android:text="This button allows you to identify a plant using your phone's camera. Simply capture a clear image of the plant (leaf, flower, ...), and the app will suggest possible plant names."
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/instructions_text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="6dp"
+            android:paddingBottom="2dp"
+            android:text="Diagnose Button:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/instructions_text5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="12dp"
+            android:paddingBottom="18dp"
+            android:text="This button focuses on a broader health assessment for various plant types, especially indoor plants. It can identify up to 70 possible diseases based on the image you capture."
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/instructions_text6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="6dp"
+            android:paddingBottom="2dp"
+            android:text="Crop Health Button:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/instructions_text7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="12dp"
+            android:paddingBottom="18dp"
+            android:text="This feature specifically designed for agricultural needs. It focuses on identifying diseases and pests affecting 23 major edible crops. The database contains information on over 288 potential issues!"
+            android:textSize="12sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="**Warning:"
+            android:paddingLeft="6dp"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textColor="#EC0D0D"
+            />
+        <TextView
+            android:id="@+id/instructions_text8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="12dp"
+            android:textColor="@color/black"
+            android:paddingBottom="10dp"
+            android:text="is some cases, it is better to Uploade the plant image from your device, to improve image quality and identification results."
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/faq_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:paddingLeft="6dp"
+            android:textColor="@color/black"
+            android:text="**For more details, visit our FAQ: https://www.kindwise.com/faq"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

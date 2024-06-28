@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreen">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".SplashScreen">
+
+        <ImageView
+            android:layout_width="179dp"
+            android:layout_height="188dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="210dp"
+            android:src="@drawable/justplantlogo"
+            tools:layout_editor_absoluteX="91dp"
+            tools:layout_editor_absoluteY="158dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal"
+            tools:context=".SplashScreen">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="-30dp"
+                android:fontFamily="@font/sakkal"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="2"
+                android:shadowDy="-7"
+                android:shadowRadius="10"
+                android:text="JUST"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/sakkal"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="11"
+                android:shadowDy="-7"
+                android:shadowRadius="10"
+                android:text="PLANT"
+                android:textColor="@color/black"
+                android:textSize="75sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/splash_caption"
+            android:textColor="@color/app_green" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="160dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            tools:context=".SplashScreen">
+
+            <Button
+                android:id="@+id/SignIn_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/BlackShadow"
+                android:shadowRadius="30"
+                android:text="@string/signin"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/register_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="105dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/BlackShadow"
+                android:shadowRadius="30"
+                android:text="@string/register"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

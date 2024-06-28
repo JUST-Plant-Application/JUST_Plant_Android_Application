@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_gravity="bottom"
+    android:background="@drawable/nav_bar_background"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/home_Btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_max="wrap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:src="@drawable/out_home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-7dp"
+            android:text="@string/home_title"
+            android:textSize="16sp"
+            android:fontFamily="@font/sakkal"
+            android:textColor="@color/app_gray" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Diagnose_Btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_max="wrap"
+        app:layout_constraintStart_toEndOf="@id/home_Btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/categories2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Categories_title"
+            android:textSize="16sp"
+            android:fontFamily="@font/sakkal"
+            android:textColor="@color/app_gray" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Scan_Btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_max="wrap"
+        app:layout_constraintStart_toEndOf="@id/Diagnose_Btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="87dp"
+            android:layout_height="87dp"
+            android:src="@drawable/scan_button" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Feed_Btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_max="wrap"
+        app:layout_constraintStart_toEndOf="@id/Scan_Btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/in_chat" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-7dp"
+            android:text="@string/feed_title"
+            android:textSize="20sp"
+            android:fontFamily="@font/sakkal"
+            android:textColor="@color/app_green" />
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/app_circle"
+            android:layout_marginTop="-5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/MYGarden_Btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_max="wrap"
+        app:layout_constraintStart_toEndOf="@id/Feed_Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/my_garden_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Mygarden_title"
+            android:textSize="16sp"
+            android:fontFamily="@font/sakkal"
+            android:textColor="@color/app_gray" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

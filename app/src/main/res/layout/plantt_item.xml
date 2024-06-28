@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="370dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:layout_gravity="center">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="162dp"
+        android:layout_height="332dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="20dp"
+        android:elevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/plantImage"
+            android:layout_width="155dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:src="@drawable/plant_logo" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/plantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sakkal"
+            android:text="Plant Name"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/scientificName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scientific Name"
+            android:fontFamily="@font/sakkal"
+            android:textStyle="bold"
+            android:textColor="@color/app_gray"
+            android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/openPlantPage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/plant_arrow"
+            android:layout_gravity="bottom" />
+
+    </LinearLayout>
+        
+        <ImageView
+            android:id="@+id/AddToGarden_Btn"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_to_garden"
+            android:baselineAlignBottom="true"/>
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

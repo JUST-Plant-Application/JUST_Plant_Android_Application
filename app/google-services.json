@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "977918963162",
+    "project_id": "just-plant",
+    "storage_bucket": "just-plant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977918963162:android:e38bdf36f3b19bee3a64e3",
+        "android_client_info": {
+          "package_name": "com.example.just_plant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFVl8dEHb_qaiWSIooDBbV8H0WIZg-k64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

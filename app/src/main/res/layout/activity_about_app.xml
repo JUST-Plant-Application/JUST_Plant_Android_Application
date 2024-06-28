@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutApp"
+    android:orientation="vertical"
+    android:background="#F1F1F1">
+
+    <LinearLayout
+        android:id="@+id/comment_bar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:background="@drawable/white_box"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:windowSoftInputMode="adjustResize">
+
+        <ImageView
+            android:id="@+id/backTohome"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/back_arrow"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="30dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="About JUST Plant"/>
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="20dp"
+        android:elevation="10dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/app_poster"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="15dp"
+        android:layout_width="350dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="20dp"
+        android:elevation="10dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:padding="15dp"
+            android:text="“JUST-Plan” uses smart AI to make plantt care a breeze. From accurate identification to personalized tips and a friendly community, it's designed to make plantt nurturing easy for everyone. Though there are a few limitations, we're committed to improving and creating a global community of happy plantt enthusiasts."
+            android:textSize="12dp"
+            tools:ignore="TextSizeCheck" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#616161"
+        android:textSize="11dp"
+        android:text="Made with love"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="AYA &amp; NOOR"/>
+
+
+</LinearLayout>

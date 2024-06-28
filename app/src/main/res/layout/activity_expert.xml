@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Expert"
+    android:orientation="vertical"
+    android:background="#F1F1F1">
+
+    <LinearLayout
+        android:id="@+id/comment_bar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:background="@drawable/white_box"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:windowSoftInputMode="adjustResize">
+
+        <ImageView
+            android:id="@+id/backTohome_expert"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/back_arrow"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="30dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Contact Us"/>
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="20dp"
+        android:elevation="10dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Get technical support or give app suggestion:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="100dp"
+            android:textStyle="bold"
+            android:text="Your Email Address"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="30dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_expert"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/mail_hint"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="200dp"
+            android:textStyle="bold"
+            android:text="Description"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginStart="30dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Description_expert"
+                android:layout_width="290dp"
+                android:layout_height="130dp"
+                android:gravity="top"
+                android:hint="Describe your Suggestion"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="370dp"
+            android:textStyle="bold"
+            android:text="Add Image"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginStart="30dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/plus"
+            android:background="#F1F1F1"
+            android:id="@+id/image_added_expert"
+            android:layout_marginBottom="30dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_color"
+        android:elevation="10dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/sendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/no"
+            android:text="Send"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:clickable="true"/>
+    </LinearLayout>
+
+
+</LinearLayout>

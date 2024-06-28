@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/disease_details_container"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        android:gravity="left">
+
+        <TextView
+            android:id="@+id/disease_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/disease_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/disease_probability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_gravity="left"
+        android:paddingTop="8dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingEnd="4dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/similar_images_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/disease_similar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:paddingTop="2dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/disease_images_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+
+    <!-- Container for additional details like description, severity, and spreading -->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/details_container"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical"-->
+    <!--        android:paddingTop="8dp" />-->
+
+    <TextView
+        android:id="@+id/disease_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/disease_scientific_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/disease_common_names"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/disease_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/show_more1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show more"
+        android:layout_gravity="left"
+        android:paddingTop="1dp"
+        android:textColor="?android:attr/textColorLink"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/disease_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/disease_taxonomy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/disease_symptoms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/disease_severity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/show_more2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show more"
+        android:layout_gravity="left"
+        android:paddingTop="1dp"
+        android:textColor="?android:attr/textColorLink"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/disease_spreading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/show_more3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show more"
+        android:layout_gravity="left"
+        android:paddingTop="1dp"
+        android:textColor="?android:attr/textColorLink"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/treatment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="8dp" />
+
+</LinearLayout>

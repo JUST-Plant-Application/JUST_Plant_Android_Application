@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">JUST Plant</string>
+    <string name="splash_caption">I will give you the complete access to you account</string>
+    <string name="signIn_caption">Signin To Continue With JUST Plant</string>
+    <string name="register"><u>Register</u></string>
+    <string name="signin"><u>Sign In</u></string>
+    <string name="mail_hint">Enter your Email</string>
+    <string name="pass_hint">Enter your Password</string>
+    <string name="home_title">Home</string>
+    <string name="Categories_title">Categories</string>
+    <string name="feed_title">Feed</string>
+    <string name="Mygarden_title">My Garden</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

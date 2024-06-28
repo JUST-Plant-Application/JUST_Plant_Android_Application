@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostActivity"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:id="@+id/main">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".PostActivity"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:elevation="10dp"
+            android:background="@drawable/white_box"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/cancel_post_btn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/close"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Create a post"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginStart="70dp"/>
+
+
+            <TextView
+                android:id="@+id/done_post_btn"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="60dp"
+                android:text="POST"
+                android:textColor="@color/app_green"
+                android:shadowColor="@color/app_green2"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:shadowRadius="20"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Add Post Image"
+                android:layout_marginBottom="11dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:fontFamily="@font/sakkal"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="5dp"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/image_added"
+                    android:layout_marginBottom="30dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Add a Description"
+                android:maxLines="5"
+                android:id="@+id/description"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

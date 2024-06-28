@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+
+    tools:context=".Feed_page">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F1F1F1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="23dp"
+            android:textSize="35dp"
+            android:fontFamily="@font/sakkal"
+            android:textStyle="bold"
+            android:text="Explore"/>
+
+        <LinearLayout
+            android:id="@+id/add_post"
+            android:layout_width="342dp"
+            android:layout_height="42dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:background="@drawable/add_post_box">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Yours |"
+                android:layout_gravity="center"
+                android:textColor="#646464"
+                android:layout_marginStart="37dp"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="201dp"
+                android:src="@drawable/add"/>
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/recycler_view"
+
+            android:layout_width="390dp"
+            android:layout_height="512dp"
+            android:padding="10dp"
+
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:layout_marginTop="0dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/post_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <include
+            layout="@layout/feed_page_navigation_bar"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
