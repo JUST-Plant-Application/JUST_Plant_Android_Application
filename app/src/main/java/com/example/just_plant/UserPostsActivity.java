@@ -46,7 +46,7 @@ public class UserPostsActivity extends AppCompatActivity {
 
         // Initialize views
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         postLists = new ArrayList<>();

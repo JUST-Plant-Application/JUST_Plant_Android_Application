@@ -102,7 +102,7 @@ public class TheMainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         planttList = new ArrayList<>();
         plantTAdapter = new PlantTAdapter(this, planttList);
         recyclerView.setAdapter(plantTAdapter);

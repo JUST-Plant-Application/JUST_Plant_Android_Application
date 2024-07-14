@@ -57,7 +57,7 @@ import java.util.ArrayList;
             addPlant = findViewById(R.id.add_plant);
 
             recyclerView = findViewById(R.id.recyclerView);
-            recyclerView.setHasFixedSize(true);
+//            recyclerView.setHasFixedSize(true);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
             linearLayoutManager.setReverseLayout(true);
             linearLayoutManager.setStackFromEnd(true);

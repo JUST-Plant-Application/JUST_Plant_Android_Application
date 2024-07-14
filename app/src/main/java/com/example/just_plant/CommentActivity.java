@@ -85,7 +85,7 @@ public class CommentActivity extends AppCompatActivity {
 
 
 
-        recyclerView.setHasFixedSize(true);
+      //  recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         commentList = new ArrayList<>();
         commentAdapter = new CommentAdapter(this, commentList, db);

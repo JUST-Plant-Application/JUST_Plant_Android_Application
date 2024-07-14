@@ -57,7 +57,7 @@ public class Feed_page extends AppCompatActivity {
 
         CreatePostBtn = findViewById(R.id.add_post);
         recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);

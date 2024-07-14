@@ -7,11 +7,17 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-public class CustomDialog {
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CustomDialog extends AppCompatActivity {
 
     private Context context;
     private CloseDialogListener closeDialogListener;
-
+    public CustomDialog() {
+        // Default constructor logic if needed
+        
+    }
     public CustomDialog(Context context, CloseDialogListener closeDialogListener) {
         if (closeDialogListener == null) {
             throw new IllegalArgumentException("CloseDialogListener cannot be null");
