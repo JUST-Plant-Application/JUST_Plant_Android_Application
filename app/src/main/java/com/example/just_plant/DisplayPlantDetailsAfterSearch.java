@@ -49,7 +49,7 @@ public class DisplayPlantDetailsAfterSearch extends AppCompatActivity {
         TextView showMoreDescription = findViewById(R.id.show_more);
         TextView url = findViewById(R.id.url);
         TextView taxonomy = findViewById(R.id.taxonomy);
-        TextView synonyms = findViewById(R.id.synonyms);
+
         TextView showMoreSynonyms = findViewById(R.id.show_more_synonyms);
         TextView edibleParts = findViewById(R.id.edible_parts);
         TextView watering = findViewById(R.id.watering);
@@ -180,6 +180,12 @@ public class DisplayPlantDetailsAfterSearch extends AppCompatActivity {
             }
             // Display synonyms
             if (response.has("synonyms")) {
+                //synonyms.setVisibility(View.VISIBLE);
+                LinearLayout synn = findViewById(R.id.synonymss);
+                synn.setVisibility(View.VISIBLE);
+
+                TextView synonyms = findViewById(R.id.synonyms);
+                showMoreSynonyms.setVisibility(View.VISIBLE);
                 JSONArray synonymsArray = response.getJSONArray("synonyms");
                 String synTitle = "Synonyms: \n";
                 SpannableStringBuilder synBuilder = new SpannableStringBuilder(synTitle);
@@ -215,11 +221,19 @@ public class DisplayPlantDetailsAfterSearch extends AppCompatActivity {
                         showMoreSynonyms.setVisibility(View.GONE);
                     }
                 });
+
+                View syn = findViewById(R.id.syn);
+                syn.setVisibility(View.VISIBLE);
             } else {
                 Log.e("JSON Parsing", "Synonyms not found");
             }
+
+
             // Display edible parts if not null
             if (!response.isNull("edible_parts")) {
+                LinearLayout edible=findViewById(R.id.edible);
+                edible.setVisibility(View.VISIBLE);
+
                 String ediblePartsText = "Edible parts: \n";
                 SpannableStringBuilder edibleBuilder = new SpannableStringBuilder(ediblePartsText);
                 edibleBuilder.setSpan(new ForegroundColorSpan(Color.BLACK), 0, ediblePartsText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Color
@@ -227,12 +241,20 @@ public class DisplayPlantDetailsAfterSearch extends AppCompatActivity {
                 edibleBuilder.setSpan(new AbsoluteSizeSpan(18, true), 0, ediblePartsText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Size
                 edibleBuilder.append(response.getString("edible_parts"));
                 edibleParts.setText(edibleBuilder);
-                edibleParts.setVisibility(View.VISIBLE);
+
+                View Eline= findViewById(R.id.Eline);
+                Eline.setVisibility(View.VISIBLE);
+
             } else {
                 Log.e("JSON Parsing", "Edible parts not found");
             }
+
+
+
             // Display watering if not null
             if (!response.isNull("watering")) {
+                LinearLayout water = findViewById(R.id.water);
+                water.setVisibility(View.VISIBLE);
                 String wateringText = "Watering: \n";
                 SpannableStringBuilder wateringBuilder = new SpannableStringBuilder(wateringText);
                 wateringBuilder.setSpan(new ForegroundColorSpan(Color.BLACK), 0, wateringText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Color
@@ -240,12 +262,18 @@ public class DisplayPlantDetailsAfterSearch extends AppCompatActivity {
                 wateringBuilder.setSpan(new AbsoluteSizeSpan(18, true), 0, wateringText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Size
                 wateringBuilder.append(response.getString("watering"));
                 watering.setText(wateringBuilder);
-                watering.setVisibility(View.VISIBLE);
+
+                View Wline= findViewById(R.id.Wline);
+                Wline.setVisibility(View.VISIBLE);
+
             } else {
                 Log.e("JSON Parsing", "Watering not found");
             }
             // Display propagation methods if not null
             if (!response.isNull("propagation_methods")) {
+                LinearLayout propagationn = findViewById(R.id.prop);
+                propagationn.setVisibility(View.VISIBLE);
+
                 String propagationMethodsText = "Propagation methods: \n";
                 SpannableStringBuilder propagationBuilder = new SpannableStringBuilder(propagationMethodsText);
                 propagationBuilder.setSpan(new ForegroundColorSpan(Color.BLACK), 0, propagationMethodsText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Color
@@ -253,14 +281,21 @@ public class DisplayPlantDetailsAfterSearch extends AppCompatActivity {
                 propagationBuilder.setSpan(new AbsoluteSizeSpan(18, true), 0, propagationMethodsText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Size
                 propagationBuilder.append(response.getString("propagation_methods"));
                 propagationMethods.setText(propagationBuilder);
-                propagationMethods.setVisibility(View.VISIBLE);
+
+                View Pline= findViewById(R.id.Pline);
+                Pline.setVisibility(View.VISIBLE);
+
             } else {
                 Log.e("JSON Parsing", "Propagation methods not found");
             }
+
             // Display similar images
             if (response.has("images")) {
+
                 JSONArray imagesArray = response.getJSONArray("images");
                 if (imagesArray.length() > 0) {
+                    ImageView simImg = findViewById(R.id.simImg);
+                    simImg.setVisibility(View.VISIBLE);
                     similarLabel.setVisibility(View.VISIBLE);
                     similarImagesScrollview.setVisibility(View.VISIBLE);
                     Picasso.get().load(imagesArray.getJSONObject(0).getString("value")).into(similarImage1);

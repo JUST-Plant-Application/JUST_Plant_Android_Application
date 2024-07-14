@@ -1,7 +1,11 @@
 package com.example.just_plant.model;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -37,7 +41,29 @@ public class FirestoreUtils {
                 });
     }
 
+    public void getCategoryNameById(String categoryId, final FirestoreCallback callback) {
+        db.collection("categories").document(categoryId).get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                String categoryName = document.getString("name");
+                                callback.onCallback(categoryName);
+                            } else {
+                                callback.onCallback(null);
+                            }
+                        } else {
+                            callback.onCallback(null);
+                        }
+                    }
+                });
+    }
 
+    public interface FirestoreCallback {
+        void onCallback(String categoryName);
+    }
     public void fetchPlants(String categoryId, final PlantCallback callback) {
         db.collection("categories").document(categoryId).collection("Plants")
                 .get()

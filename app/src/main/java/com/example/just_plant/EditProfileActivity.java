@@ -85,6 +85,19 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // loadUserProfile();
     }
+
+    ////////////////////
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(EditProfileActivity.this, TheMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    /////////////////////
     private void resetPassword() {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {

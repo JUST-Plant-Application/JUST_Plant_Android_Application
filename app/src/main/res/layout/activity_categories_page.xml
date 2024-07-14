@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Categories_page"
     android:background="#F1F1F1"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    tools:context=".Categories_page">
 
     <LinearLayout
         android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:background="#F1F1F1">
-
-
+        android:background="#F1F1F1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="35dp"
+            android:text="Plants Categories"
+            android:textSize="35sp"
             android:paddingTop="23dp"
             android:fontFamily="@font/sakkal"
-            android:textStyle="bold"
-            android:text="Plants Categories"/>
-
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/SearchPlant_category"
@@ -37,8 +40,7 @@
             android:elevation="5dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            tools:ignore="MissingConstraints">
+            android:layout_marginTop="15dp">
 
             <ImageView
                 android:layout_gravity="center"
@@ -46,7 +48,6 @@
                 android:layout_width="20dp"
                 android:layout_height="21dp"
                 android:src="@drawable/search" />
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -56,200 +57,182 @@
                 android:textColor="#646464"/>
 
         </LinearLayout>
-
         <TextView
-            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
             android:text="Explore Plants By Plant Category"
+            android:textSize="30sp"
             android:fontFamily="@font/sakkal"
             android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            />
+            android:textColor="@color/black" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCC"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingRight="14dp"
+            android:paddingLeft="14dp"
+            tools:listitem="@layout/category_item"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1" />
+    </LinearLayout>
 
-
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/navBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/nav_bar_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="460dp"
+            android:id="@+id/home_Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp"
-            >
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintHeight_max="wrap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewCC"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/category_item"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                />
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:src="@drawable/out_home" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-7dp"
+                android:text="@string/home_title"
+                android:textSize="16sp"
+                android:fontFamily="@font/sakkal"
+                android:textColor="@color/app_gray" />
         </LinearLayout>
 
-
-
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/Diagnose_Btn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/nav_bar_background"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintHeight_max="wrap"
+            app:layout_constraintStart_toEndOf="@id/home_Btn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <LinearLayout
-                android:id="@+id/home_Btn"
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ctegories" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintWidth_percent="0.2"
-                app:layout_constraintHeight_max="wrap"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:layout_marginTop="-7dp"
+                android:text="@string/Categories_title"
+                android:textSize="18sp"
+                android:fontFamily="@font/sakkal"
+                android:textColor="@color/app_green" />
 
-                <ImageView
-                    android:layout_width="33dp"
-                    android:layout_height="33dp"
-                    android:src="@drawable/out_home" />
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:src="@drawable/app_circle"/>
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-7dp"
-                    android:text="@string/home_title"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/sakkal"
-                    android:textColor="@color/app_gray" />
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Scan_Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_max="wrap"
+            app:layout_constraintStart_toEndOf="@id/Diagnose_Btn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.2"
+            tools:ignore="SpeakableTextPresentCheck">
 
+            <ImageView
+                android:layout_width="87dp"
+                android:layout_height="87dp"
+                android:src="@drawable/scan_button" />
+        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/Diagnose_Btn"
-                android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/Feed_Btn_"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintHeight_max="wrap"
+            app:layout_constraintStart_toEndOf="@id/Scan_Btn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/out_chat" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintWidth_percent="0.2"
-                app:layout_constraintHeight_max="wrap"
-                app:layout_constraintStart_toEndOf="@id/home_Btn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:text="@string/feed_title"
+                android:textSize="16sp"
+                android:fontFamily="@font/sakkal"
+                android:textColor="@color/app_gray" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/ctegories" />
+        <LinearLayout
+            android:id="@+id/MYGarden_Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintHeight_max="wrap"
+            app:layout_constraintStart_toEndOf="@id/Feed_Btn_"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-7dp"
-                    android:text="@string/Categories_title"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/sakkal"
-                    android:textColor="@color/app_green" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/my_garden_icon" />
 
-                <ImageView
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:src="@drawable/app_circle"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/Scan_Btn"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintWidth_percent="0.2"
-                app:layout_constraintHeight_max="wrap"
-                app:layout_constraintStart_toEndOf="@id/Diagnose_Btn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:text="@string/Mygarden_title"
+                android:textSize="16sp"
+                android:fontFamily="@font/sakkal"
+                android:textColor="@color/app_gray" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="87dp"
-                    android:layout_height="87dp"
-                    android:src="@drawable/scan_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/Feed_Btn_"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintWidth_percent="0.2"
-                app:layout_constraintHeight_max="wrap"
-                app:layout_constraintStart_toEndOf="@id/Scan_Btn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <ImageView
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:src="@drawable/out_chat" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/feed_title"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/sakkal"
-                    android:textColor="@color/app_gray" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/MYGarden_Btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintWidth_percent="0.2"
-                app:layout_constraintHeight_max="wrap"
-                app:layout_constraintStart_toEndOf="@id/Feed_Btn_"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/my_garden_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Mygarden_title"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/sakkal"
-                    android:textColor="@color/app_gray" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+

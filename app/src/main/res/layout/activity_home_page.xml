@@ -1,76 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".CommentActivity"
-android:windowSoftInputMode="adjustResize"
-    tools:ignore="ExtraText">
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:windowSoftInputMode="adjustResize">
+    tools:context=".CommentActivity"
+    android:paddingTop="14dp"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp"
+    android:fitsSystemWindows="true"
+    android:windowSoftInputMode="adjustResize"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:id="@+id/top"
+    <RelativeLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:windowSoftInputMode="adjustResize">
 
-        <ImageView
-            android:id="@+id/backTohome_search"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/back_arrow"/>
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:gravity="center_vertical"
+            android:windowSoftInputMode="adjustResize">
 
-                <!-- SearchView -->
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/autoCompleteTextView"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter plant name"
-                    app:queryHint="Enter plant name"
-                    android:layout_marginStart="20dp"
-                    android:imeOptions="actionSearch"
-                    android:background="@drawable/search_box"
-                    app:iconifiedByDefault="false"
-                    android:inputType="text" />
+            <ImageView
+                android:id="@+id/backTohome_search"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/back_arrow"
+               />
 
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Enter plant name"
+                app:queryHint="Enter plant name"
+                android:layout_marginStart="16dp"
+                android:imeOptions="actionSearch"
+                android:background="@drawable/search_box"
+                app:iconifiedByDefault="false"
+                android:inputType="text"/>
+        </LinearLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchResultsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:visibility="visible"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/top"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_plant_result"/>
 
-    </LinearLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/searchResultsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="730dp"
-        android:scrollbarSize="80dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="3"
-        android:visibility="visible"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/top"
-        tools:listitem="@layout/item_plant_result"/>
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+    </RelativeLayout>
 </RelativeLayout>
-</RelativeLayout>
-
-
 

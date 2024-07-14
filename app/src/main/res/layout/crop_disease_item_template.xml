@@ -102,6 +102,7 @@
         android:layout_gravity="left"
         android:textStyle="normal"
         android:textColor="@color/black"
+        android:layout_marginBottom="3dp"
         android:paddingTop="8dp"
         android:visibility="gone"/>
 
@@ -114,6 +115,7 @@
         android:textStyle="normal"
         android:textColor="@color/black"
         android:paddingTop="8dp"
+        android:layout_marginBottom="3dp"
         android:visibility="gone"/>
     <TextView
         android:id="@+id/disease_common_names"
@@ -124,6 +126,7 @@
         android:textStyle="normal"
         android:textColor="@color/black"
         android:paddingTop="8dp"
+        android:layout_marginBottom="3dp"
         android:visibility="gone"/>
     <TextView
         android:id="@+id/disease_description"
@@ -142,6 +145,7 @@
         android:text="Show more"
         android:layout_gravity="left"
         android:paddingTop="1dp"
+        android:layout_marginBottom="3dp"
         android:textColor="?android:attr/textColorLink"
         android:visibility="gone"/>
     <TextView
@@ -155,6 +159,7 @@
         android:linksClickable="true"
         android:textColor="@color/black"
         android:paddingTop="8dp"
+        android:layout_marginBottom="3dp"
         android:visibility="gone"/>
     <TextView
         android:id="@+id/disease_taxonomy"
@@ -164,6 +169,7 @@
         android:layout_gravity="left"
         android:textStyle="normal"
         android:textColor="@color/black"
+        android:layout_marginBottom="3dp"
         android:paddingTop="8dp"
         android:visibility="gone"/>
     <TextView
@@ -173,6 +179,7 @@
         android:textSize="16sp"
         android:layout_gravity="left"
         android:textStyle="normal"
+        android:layout_marginBottom="3dp"
         android:textColor="@color/black"
         android:paddingTop="8dp"
         android:visibility="gone"/>
@@ -193,6 +200,7 @@
         android:text="Show more"
         android:layout_gravity="left"
         android:paddingTop="1dp"
+        android:layout_marginBottom="3dp"
         android:textColor="?android:attr/textColorLink"
         android:visibility="gone"/>
 
@@ -213,6 +221,7 @@
         android:text="Show more"
         android:layout_gravity="left"
         android:paddingTop="1dp"
+        android:layout_marginBottom="3dp"
         android:textColor="?android:attr/textColorLink"
         android:visibility="gone"/>
 
@@ -222,6 +231,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
+        android:layout_marginBottom="3dp"
         android:paddingTop="8dp" />
 
 </LinearLayout>

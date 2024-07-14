@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -36,18 +37,12 @@ public class Categories_page extends AppCompatActivity {
     private CategoryAdapter categoryAdapter;
     private List<Category> categoryList;
     private RecyclerView recyclerView;
-
+    private ConstraintLayout navBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_categories_page);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-
-        });
 
 
         ToGardenBtn=findViewById(R.id.MYGarden_Btn);
@@ -146,6 +141,18 @@ public class Categories_page extends AppCompatActivity {
 
     }
 
+    ////////////////////////
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Categories_page.this, TheMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    /////////////////////////
     private void fetchCategories() {
         firestoreUtils.fetchCategories(categories -> {
             categoryList.clear();

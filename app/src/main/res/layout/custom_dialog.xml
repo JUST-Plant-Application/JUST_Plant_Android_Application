@@ -13,12 +13,11 @@
 
     <ImageButton
         android:id="@+id/close_button"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         android:background="@android:color/transparent"
-        android:foregroundGravity="center"
-        android:paddingLeft="8dp"
-        android:src="@drawable/close"
+        android:foregroundGravity="center|fill"
+        android:src="@drawable/closeee"
         android:layout_alignParentRight="true"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

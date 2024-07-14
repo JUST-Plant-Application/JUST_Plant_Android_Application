@@ -1,4 +1,5 @@
 package com.example.just_plant;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -202,6 +204,7 @@ public class DisplayIdentificationResult extends AppCompatActivity {
     ImageView addToGarden;
     FirebaseAuth auth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -230,7 +233,19 @@ public class DisplayIdentificationResult extends AppCompatActivity {
         LinearLayout similarImagesContainer = findViewById(R.id.similar_images_container);
         ImageView similarImage1 = findViewById(R.id.similar_image1);
         ImageView similarImage2 = findViewById(R.id.similar_image2);
-        ImageView similarImage3 = findViewById(R.id.similar_image3);
+       // ImageView similarImage3 = findViewById(R.id.similar_image3);
+
+        ImageView back= findViewById(R.id.backTohome_plant);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DisplayIdentificationResult.this, TheMainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         String responseString = getIntent().getStringExtra("response");
 
@@ -386,6 +401,8 @@ public class DisplayIdentificationResult extends AppCompatActivity {
 
             // Display edible parts if not null
             if (!details.isNull("edible_parts")) {
+                LinearLayout edible = findViewById(R.id.edible);
+                edible.setVisibility(View.VISIBLE);
                 String ediblePartsText = "Edible parts: \n";
                 SpannableStringBuilder edibleBuilder = new SpannableStringBuilder(ediblePartsText);
                 edibleBuilder.setSpan(new ForegroundColorSpan(Color.BLACK), 0, ediblePartsText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Color
@@ -399,6 +416,8 @@ public class DisplayIdentificationResult extends AppCompatActivity {
 
             // Display watering if not null
             if (!details.isNull("watering")) {
+                LinearLayout water = findViewById(R.id.water);
+                water.setVisibility(View.VISIBLE);
                 String wateringText = "Watering: \n";
                 SpannableStringBuilder wateringBuilder = new SpannableStringBuilder(wateringText);
                 wateringBuilder.setSpan(new ForegroundColorSpan(Color.BLACK), 0, wateringText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Color
@@ -412,6 +431,9 @@ public class DisplayIdentificationResult extends AppCompatActivity {
 
             // Display propagation methods if not null
             if (!details.isNull("propagation_methods")) {
+                LinearLayout propagation = findViewById(R.id.prop);
+                propagation.setVisibility(View.VISIBLE);
+
                 String propagationMethodsText = "Propagation methods: \n";
                 SpannableStringBuilder propagationBuilder = new SpannableStringBuilder(propagationMethodsText);
                 propagationBuilder.setSpan(new ForegroundColorSpan(Color.BLACK), 0, propagationMethodsText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // Color
@@ -435,10 +457,10 @@ public class DisplayIdentificationResult extends AppCompatActivity {
                 Glide.with(this).load(similarImages.getJSONObject(1).getString("url")).into(similarImage2);
                 similarImage2.setVisibility(View.VISIBLE);
             }
-            if (similarImages.length() > 2) {
-                Glide.with(this).load(similarImages.getJSONObject(2).getString("url")).into(similarImage3);
-                similarImage3.setVisibility(View.VISIBLE);
-            }
+//            if (similarImages.length() > 2) {
+//                Glide.with(this).load(similarImages.getJSONObject(2).getString("url")).into(similarImage3);
+//                similarImage3.setVisibility(View.VISIBLE);
+//            }
 
             // Handle add to garden button click
             addToGarden.setOnClickListener(v -> {
@@ -507,250 +529,5 @@ public class DisplayIdentificationResult extends AppCompatActivity {
                 });
     }
 }
-
-
-
-
-
-//        // Retrieve the JSON response from the intent
-//        String responseBody = getIntent().getStringExtra("response");
-//
-//        // Deserialize the JSON response using Gson
-//        Gson gson = new Gson();
-//        PlantIdentificationResponse response = gson.fromJson(responseBody, PlantIdentificationResponse.class);
-//
-//
-//        //////
-//        //
-//
-//        if (response != null) {
-//            // Update t1 to display name and first common name
-//            String name = response.getResult().getClassification().getSuggestions().get(0).getName();
-//            List<String> commonNames = response.getResult().getClassification().getSuggestions().get(0).getDetails().getCommon_names();
-//            String firstCommonName = "Not available";
-//            if (commonNames != null && !commonNames.isEmpty()) {
-//                firstCommonName = commonNames.get(0);
-//            }
-//            t1.setText("Name: " + name + "\nFirst Common Name: " + firstCommonName);
-//
-//            // Update t2 to display description
-//            String description = "Not available";
-//            PlantIdentificationResponse.Description descriptionObj = response.getResult().getClassification().getSuggestions().get(0).getDetails().getDescription();
-//            if (descriptionObj != null) {
-//                description = descriptionObj.getValue();
-//            }
-//            t2.setText("Description: " + description);
-//
-//
-//            // Update t3 to display full taxonomy
-//            PlantIdentificationResponse.Taxonomy taxonomy = response.getResult().getClassification().getSuggestions().get(0).getDetails().getTaxonomy();
-//            if (taxonomy != null) {
-//                String fullTaxonomy = taxonomy.getKingdom() + ", " + taxonomy.getPhylum() + ", " + taxonomy.getClass_() + ", " + taxonomy.getOrder() + ", " + taxonomy.getFamily() + ", " + taxonomy.getGenus();
-//                t3.setText("Full Taxonomy: " + fullTaxonomy);
-//            } else {
-//                t3.setText("Full Taxonomy: Not available");
-//            }
-//
-//
-//            // Update t4 to display synonyms
-//            List<String> synonyms = response.getResult().getClassification().getSuggestions().get(0).getDetails().getSynonyms();
-//            if (synonyms != null && !synonyms.isEmpty()) {
-//                t4.setText("Synonyms: " + TextUtils.join(", ", synonyms));
-//            } else {
-//                t4.setText("Synonyms: Not available");
-//            }
-//
-//            // Load similar images into img1 and img2
-//            List<PlantIdentificationResponse.SimilarImage> similarImages = response.getResult().getClassification().getSuggestions().get(0).getSimilar_images();
-//            if (similarImages != null && similarImages.size() >= 2) {
-//                // Assuming similarImages.get(0) and similarImages.get(1) are the first two similar images
-//                Picasso.get().load(similarImages.get(0).getUrl()).into(img1);
-//                Picasso.get().load(similarImages.get(1).getUrl()).into(img2);
-//            } else {
-//                // Handle case where there are not enough similar images
-//            }
-//        }
-//
-
-
-
-        /*
-        if (response.getResult() != null && response.getResult().getClassification() != null
-                && !response.getResult().getClassification().getSuggestions().isEmpty()) {
-            PlantIdentificationResponse.Result.Classification.Suggestion suggestion = response.getResult().getClassification().getSuggestions().get(0);
-
-            // Display the name in t1
-            if (suggestion.getDetails() != null) {
-                String commonName = suggestion.getDetails().getCommon_names() != null && !suggestion.getDetails().getCommon_names().isEmpty()
-                        ? suggestion.getDetails().getCommon_names().get(0)
-                        : "No common name found";
-                t1.setText(suggestion.getName() + " - " + commonName);
-            }
-
-            // Display the description in t2
-            if (suggestion.getDetails() != null && suggestion.getDetails().getDescription() != null) {
-                String description = suggestion.getDetails().getDescription().getValue();
-                Log.d("Description", description); // Log the description
-                t2.setText(description);
-                Log.d("t2", "Description set to " + description); // Log that t2 has been set
-            } else {
-                Log.d("Description", "No description found"); // Log if description is null
-                t2.setText("No description found"); // Set the text to a default message
-            }
-
-            // Display the full taxonomy in t3
-            if (suggestion.getDetails() != null && suggestion.getDetails().getTaxonomy() != null) {
-                PlantIdentificationResponse.Result.Classification.Suggestion.Details.Taxonomy taxonomy = suggestion.getDetails().getTaxonomy();
-                String fullTaxonomy = "Class: " + taxonomy.getClass_() + "\n"
-                        + "Genus: " + taxonomy.getGenus() + "\n"
-                        + "Order: " + taxonomy.getOrder() + "\n"
-                        + "Family: " + taxonomy.getFamily() + "\n"
-                        + "Phylum: " + taxonomy.getPhylum() + "\n"
-                        + "Kingdom: " + taxonomy.getKingdom();
-                Log.d("FullTaxonomy", fullTaxonomy); // Log the full taxonomy
-                t3.setText(fullTaxonomy);
-                Log.d("t3", "Full taxonomy set to " + fullTaxonomy); // Log that t3 has been set
-            } else {
-                Log.d("FullTaxonomy", "No taxonomy found"); // Log if taxonomy is null
-                t3.setText("No taxonomy found"); // Set the text to a default message
-            }
-
-            // Display synonyms in t4
-            if (suggestion.getDetails() != null && suggestion.getDetails().getSynonyms() != null) {
-                List<String> synonyms = suggestion.getDetails().getSynonyms();
-                if (!synonyms.isEmpty()) {
-                    StringBuilder synonymsBuilder = new StringBuilder();
-                    for (String synonym : synonyms) {
-                        synonymsBuilder.append(synonym).append(", ");
-                    }
-                    // Remove the last comma and space
-                    synonymsBuilder.setLength(synonymsBuilder.length() - 2);
-                    Log.d("Synonyms", synonymsBuilder.toString()); // Log the synonyms
-                    t4.setText(synonymsBuilder.toString());
-                    Log.d("t4", "Synonyms set to " + synonymsBuilder.toString()); // Log that t4 has been set
-                } else {
-                    Log.d("Synonyms", "No synonyms found"); // Log if synonyms list is empty
-                    t4.setText("No synonyms found"); // Set the text to a default message
-                }
-            } else {
-                Log.d("Synonyms", "No synonyms found"); // Log if synonyms is null
-                t4.setText("No synonyms found"); // Set the text to a default message
-            }
-
-            // Display similar images in img1 and img2
-            if (suggestion.getSimilar_images() != null && !suggestion.getSimilar_images().isEmpty()) {
-                List<PlantIdentificationResponse.Result.Classification.Suggestion.SimilarImage> similarImages = suggestion.getSimilar_images();
-                if (similarImages.size() >= 2) {
-                    // Display the first two similar images in img1 and img2
-                    String imageUrl1 = similarImages.get(0).getUrl();
-                    String imageUrl2 = similarImages.get(1).getUrl();
-
-
-                    // Load images using an image loading library like Picasso or Glide
-                    // For example, using Picasso:
-                    Picasso.get().load(imageUrl1).into(img1);
-                    Picasso.get().load(imageUrl2).into(img2);
-                }
-            }
-        }
-
-        */
-
-
-
-
-//////////////////////////////////////////////////////////////////////
-
-
-// Assuming 't1' is TextView for Plantt Name, 't2' for Taxonomy, 't3' for Description, 't4' for URL
-/*
-        Intent intent = getIntent();
-        String response = intent.getStringExtra("response");
-        if (response == null) {
-            Log.e("DisplayIdentificationResult", "No response received.");
-            return;
-        }
-
-        try {
-            JSONObject jsonResponse = new JSONObject(response);
-            JSONObject result = jsonResponse.getJSONObject("result");
-            JSONObject classification = result.getJSONObject("classification");
-            JSONArray suggestions = classification.getJSONArray("suggestions");
-            JSONObject suggestion0 = suggestions.getJSONObject(0);
-            JSONObject details = suggestion0.getJSONObject("details");
-            JSONArray similarImages = suggestion0.getJSONArray("similar_images");
-
-            // Display Plantt Name
-            String plantName = suggestion0.optString("name", "Name not available");
-            t1.setText("Plantt Name: " + plantName);
-
-            // Display Common Names
-            if (details.has("common_names")) {
-                JSONArray commonNames = details.getJSONArray("common_names");
-                StringBuilder commonNamesText = new StringBuilder();
-                for (int i = 0; i < commonNames.length(); i++) {
-                    commonNamesText.append(commonNames.getString(i));
-                    if (i < commonNames.length() - 1) {
-                        commonNamesText.append(", ");
-                    }
-                }
-                t2.setText("Common Names: " + commonNamesText.toString());
-            } else {
-                t2.setText("Common Names: Not available");
-            }
-
-            // Display Taxonomy Information
-            if (details.has("taxonomy")) {
-                JSONObject taxonomy = details.getJSONObject("taxonomy");
-                String taxonomyText = getTaxonomyText(taxonomy);
-                t3.setText("Taxonomy: \n" + taxonomyText);
-            } else {
-                t3.setText("Taxonomy: Not available");
-            }
-
-            // Display Description
-            if (details.has("description")) {
-                JSONObject descriptionObj = details.getJSONObject("description");
-                String description = descriptionObj.optString("value", "Description unavailable");
-                t4.setText("Description: " + description);
-            } else {
-                t4.setText("Description: Not available");
-            }
-
-            // Load and display similar images
-            if (similarImages.length() > 0) {
-                String imageUrl1 = similarImages.getJSONObject(0).optString("url");
-                Picasso.get().load(imageUrl1).into(img1);
-                if (similarImages.length() > 1) {
-                    String imageUrl2 = similarImages.getJSONObject(1).optString("url");
-                    Picasso.get().load(imageUrl2).into(img2);
-                }
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e("JSON Parsing Error", "Error: ", e);
-        }
-    }
-
-    private String getTaxonomyText(JSONObject taxonomy) {
-        if (taxonomy != null) {
-            return "Class: " + taxonomy.optString("class") + "\n" +
-                    "Genus: " + taxonomy.optString("genus") + "\n" +
-                    "Order: " + taxonomy.optString("order") + "\n" +
-                    "Family: " + taxonomy.optString("family") + "\n" +
-                    "Phylum: " + taxonomy.optString("phylum") + "\n" +
-                    "Kingdom: " + taxonomy.optString("kingdom");
-        } else {
-            return "Taxonomy information not available";
-        }
-
-
-
- */
-
-
-
-
 
 

@@ -117,6 +117,18 @@ import java.util.ArrayList;
             });
         }
 
+
+        ////////////////////
+        @Override
+        public void onBackPressed() {
+            super.onBackPressed();
+            Intent intent = new Intent(Garden_page.this, TheMainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
+        }
+
+        ///////////////////////
         private void fetchUserGarden() {
             String userId = mAuth.getCurrentUser().getUid();
             db.collection("user_garden").document(userId).get()

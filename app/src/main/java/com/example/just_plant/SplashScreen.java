@@ -24,11 +24,11 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash_screen);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -36,6 +36,7 @@ public class SplashScreen extends AppCompatActivity {
         RegisterButton=findViewById(R.id.register_Btn);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), TheMainActivity.class);
             startActivity(intent);
@@ -46,6 +47,8 @@ public class SplashScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SplashScreen.this, Login.class);
                 startActivity(intent);
+                ///////////////////////////////////////
+                finish();
             }
         });//end SignIn listener
 

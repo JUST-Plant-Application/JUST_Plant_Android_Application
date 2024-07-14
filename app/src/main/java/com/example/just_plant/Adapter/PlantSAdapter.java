@@ -173,6 +173,7 @@ public class PlantSAdapter extends RecyclerView.Adapter<PlantSAdapter.ViewHolder
         public TextView categoryName;
         ImageView openPlant;
 
+
         public ViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.plant_name);
@@ -180,12 +181,16 @@ public class PlantSAdapter extends RecyclerView.Adapter<PlantSAdapter.ViewHolder
             sName = itemView.findViewById(R.id.scientificName_plant);
             openPlant = itemView.findViewById(R.id.openPlantPagee);
             categoryName = itemView.findViewById(R.id.category_name_plant);
+
         }
 
         public void bind(final Plant plant, final OnPlantClickListener listener) {
             nameTextView.setText(plant.getName());
             sName.setText(plant.getsName());
-            Picasso.get().load(plant.getImage()).into(imageView);
+            Picasso.get().load(plant.getImage())
+                    .resize(200,200)
+                    .centerInside()
+                    .into(imageView);
 
             itemView.setOnClickListener(v -> listener.onPlantClick(plant));
         }

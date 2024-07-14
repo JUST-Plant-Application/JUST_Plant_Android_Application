@@ -34,7 +34,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
 
         <TextView
             android:id="@+id/rank"
@@ -44,7 +47,7 @@
             android:gravity="center"
             android:paddingTop="2dp"
             android:paddingBottom="10dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="40dp"
             android:text="Rank"
             android:textColor="@color/black"
             android:textStyle="italic" />
@@ -53,7 +56,7 @@
                 android:id="@+id/AddToGarden_Btn_search"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="50dp"
 
                 android:src="@drawable/add_to_garden"/>
 
@@ -66,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:paddingTop="4dp"
+            android:gravity="center"
             android:text="Common Names" />
 
         <View
@@ -75,16 +79,49 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
 
-        <TextView
-            android:id="@+id/description"
+<!--        <TextView-->
+<!--            android:id="@+id/description"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:maxLines="9"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:onClick="toggleDescription"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:text="Description"-->
+<!--            android:textColor="?android:attr/textColorPrimary" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/show_more"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Show more"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:paddingTop="1dp"-->
+<!--            android:textColor="?android:attr/textColorLink" />-->
+
+
+        <LinearLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="9"
-            android:minHeight="48dp"
-            android:onClick="toggleDescription"
-            android:paddingTop="10dp"
-            android:text="Description"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/description"/>
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="9"
+                android:minHeight="48dp"
+                android:onClick="toggleDescription"
+                android:layout_marginEnd="2dp"
+                android:text="Description"
+                android:layout_marginStart="8dp"
+                android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
         <TextView
             android:id="@+id/show_more"
             android:layout_width="wrap_content"
@@ -92,13 +129,31 @@
             android:text="Show more"
             android:layout_gravity="left"
             android:paddingTop="1dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginBottom="3dp"
             android:textColor="?android:attr/textColorLink" />
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/app_gray"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="2dp">
+
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/link1"/>
+
         <TextView
             android:id="@+id/url"
             android:layout_width="wrap_content"
@@ -106,37 +161,74 @@
             android:text="URL"
             android:layout_gravity="left"
             android:autoLink="web"
-            android:paddingTop="10dp"
+            android:layout_marginStart="6dp"
             android:textColor="?android:attr/textColorLink" />
+        </LinearLayout>
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/app_gray"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/tax"/>
+
         <TextView
             android:id="@+id/taxonomy"
             android:layout_gravity="left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Taxonomy"
-            android:paddingTop="10dp"
+            android:layout_marginStart="6dp"
             android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/app_gray"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
-        <TextView
-            android:id="@+id/synonyms"
+
+
+
+        <LinearLayout
+           android:id="@+id/synonymss"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Synonyms"
-            android:layout_gravity="left"
-            android:paddingTop="1dp"
-            android:maxLines="4"
-            />
+            android:orientation="horizontal"
+           >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="4dp"
+                android:src="@drawable/synonyms"/>
+
+
+            <TextView
+                android:id="@+id/synonyms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Synonyms"
+                android:layout_gravity="left"
+                android:paddingTop="1dp"
+                android:layout_marginStart="6dp"
+                android:maxLines="4"
+                />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/show_more_synonyms"
@@ -145,44 +237,168 @@
             android:text="Show more"
             android:layout_gravity="left"
             android:paddingTop="1dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginBottom="3dp"
+            android:visibility="gone"
             android:textColor="?android:attr/textColorLink" />
 
         <View
+            android:id="@+id/syn"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/app_gray"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
 
-        <TextView
-            android:id="@+id/edible_parts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edible Parts"
-            android:layout_gravity="left"
-            android:paddingTop="10dp"
-            android:visibility="gone"
-            android:textColor="?android:attr/textColorPrimary" />
+<!--        <TextView-->
+<!--            android:id="@+id/edible_parts"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Edible Parts"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:visibility="gone"-->
+<!--            android:textColor="?android:attr/textColorPrimary" />-->
 
-        <TextView
-            android:id="@+id/watering"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Watering"
-            android:layout_gravity="left"
-            android:paddingTop="10dp"
-            android:visibility="gone"
-            android:textColor="?android:attr/textColorPrimary" />
+<!--        <TextView-->
+<!--            android:id="@+id/watering"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Watering"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:visibility="gone"-->
+<!--            android:textColor="?android:attr/textColorPrimary" />-->
 
-        <TextView
-            android:id="@+id/propagation_methods"
-            android:layout_width="wrap_content"
+<!--        <TextView-->
+<!--            android:id="@+id/propagation_methods"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:text="Propagation Methods"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:visibility="gone"-->
+<!--            android:textColor="?android:attr/textColorPrimary" />-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Propagation Methods"
-            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:id="@+id/edible"
             android:visibility="gone"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:background="@drawable/white_box">
+
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/flower"/>
+
+            <TextView
+                android:id="@+id/edible_parts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edible Parts"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="8dp"
+                android:textColor="?android:attr/textColorPrimary" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/Eline"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_gray"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/water"
+            android:visibility="gone"
+            android:background="@drawable/white_box">
+
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/watering2"/>
+
+
+            <TextView
+                android:id="@+id/watering"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watering"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="3dp"
+                android:visibility="visible"
+                android:textColor="?android:attr/textColorPrimary" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/Wline"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_gray"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/prop"
+            android:visibility="gone"
+            android:background="@drawable/white_box">
+
+            <ImageView
+
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/watering1"/>
+
+            <TextView
+                android:id="@+id/propagation_methods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Propagation Methods"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="3dp"
+                android:visibility="visible"
+                android:textColor="?android:attr/textColorPrimary" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/Pline"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/app_gray"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/simImg"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/image2"/>
+
 
         <TextView
 
@@ -193,10 +409,10 @@
             android:text="Similar Images: "
             android:textSize="18sp"
             android:textStyle="bold"
-            android:paddingTop="10dp"
+            android:layout_marginStart="6dp"
             android:visibility="gone"
             android:textColor="?android:attr/textColorPrimary" />
-
+</LinearLayout>
         <HorizontalScrollView
             android:id="@+id/similar_images_scrollview"
             android:layout_width="match_parent"

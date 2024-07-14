@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Expert"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="#F1F1F1">
 
@@ -39,6 +40,8 @@
     </LinearLayout>
     <androidx.cardview.widget.CardView
         android:layout_marginTop="20dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:orientation="vertical"
@@ -132,10 +135,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/no"
+            android:clickable="true"
             android:text="Send"
             android:textColor="@color/black"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:textSize="20sp"
-            android:clickable="true"/>
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
 

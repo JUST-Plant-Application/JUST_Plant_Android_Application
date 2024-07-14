@@ -88,17 +88,20 @@
         <activity
             android:name=".TheMainActivity"
             android:exported="true"
-            android:theme="@style/Base.Theme.JUST_Plant" />
+            android:theme="@style/Base.Theme.JUST_Plant"
+            android:launchMode="singleTask" />
+
         <activity
             android:name=".SplashScreen"
             android:exported="true"
-            android:theme="@style/Base.Theme.JUST_Plant">
+            android:theme="@style/Base.Theme.JUST_Plant"
+            android:launchMode="singleTask"> <!-- Use singleTask or singleTop here -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <provider
             android:name="androidx.core.content.FileProvider"

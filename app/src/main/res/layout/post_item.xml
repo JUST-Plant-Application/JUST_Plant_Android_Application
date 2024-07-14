@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="370dp"
-    android:layout_height="450dp"
+    android:layout_width="350dp"
+    android:layout_height="440dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+android:padding="8dp"
+    android:fitsSystemWindows="true"
     android:gravity="center"
     android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="430dp"
+        android:foregroundGravity="center"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:cardCornerRadius="28dp"
         android:elevation="10dp">
@@ -66,7 +70,7 @@
 
                         <ImageView
                             android:id="@+id/edit_post_btn"
-                            android:layout_marginStart="100dp"
+                            android:layout_marginStart="120dp"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/edit1"

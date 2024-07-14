@@ -249,7 +249,20 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Clos
 
     } //end OnCreate()
 
+//////////////////////
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(MainActivity.this, TheMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+
+
+    /////////////////////
     @Override
     public void onClose() {
         // Set the flag in SharedPreferences when the dialog is closed

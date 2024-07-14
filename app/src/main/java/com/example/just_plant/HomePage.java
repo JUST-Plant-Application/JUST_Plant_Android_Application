@@ -63,7 +63,7 @@ public class HomePage extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(HomePage.this));
 
         SearchView searchView = findViewById(R.id.autoCompleteTextView);
-        text = findViewById(R.id.text);
+      //  text = findViewById(R.id.text);
         BackHomeBtn = findViewById(R.id.backTohome_search);
 
         BackHomeBtn.setOnClickListener(v -> {
@@ -104,7 +104,18 @@ public class HomePage extends AppCompatActivity {
             searchView.setQuery(searchTerm, true);
         }
     }
+/////////////
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(HomePage.this, TheMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    /////////////////
     private void saveSearchHistory(String query) {
         SharedPreferences sharedPreferences = getSharedPreferences("search_history", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

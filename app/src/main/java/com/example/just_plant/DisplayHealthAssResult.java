@@ -34,6 +34,7 @@ public class DisplayHealthAssResult extends AppCompatActivity {
     private static final int MAX_DISEASES_DISPLAY = 9; // Limit the number of diseases displayed
     private static final String TAG = "DisplayHealthAssResult"; // Tag for logging
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

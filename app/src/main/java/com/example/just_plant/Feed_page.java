@@ -116,7 +116,19 @@ public class Feed_page extends AppCompatActivity {
 
 
     }
+///////////////////
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Feed_page.this, TheMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+
+    /////////////////
     private void fetchPosts() {
         CollectionReference postsRef = FirebaseFirestore.getInstance().collection("posts");
 

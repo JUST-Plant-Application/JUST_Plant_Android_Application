@@ -1,6 +1,7 @@
 
 package com.example.just_plant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -55,7 +56,16 @@ public class UserPostsActivity extends AppCompatActivity {
         // Fetch posts by the author
         readPosts();
     }
-
+//////////////
+@Override
+public void onBackPressed() {
+    super.onBackPressed();
+    Intent intent = new Intent(UserPostsActivity.this, TheMainActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+    startActivity(intent);
+    finish();
+}
+    ////////////////
     private void readPosts() {
         CollectionReference postsRef = db.collection("posts");
         postsRef.whereEqualTo("authorId", authorId).get()

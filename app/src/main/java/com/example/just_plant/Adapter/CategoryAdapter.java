@@ -58,7 +58,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         public void bind(final Category category, final OnCategoryClickListener listener) {
             nameTextView.setText(category.getName());
-            Picasso.get().load(category.getImage()).into(imageView);
+            Picasso.get().load(category.getImage())
+                    .resize(200,200)
+                    .centerInside()
+                    .into(imageView);
 
             itemView.setOnClickListener(v -> {
                 Log.d("CategoryAdapter", "Category ID: " + category.getId());

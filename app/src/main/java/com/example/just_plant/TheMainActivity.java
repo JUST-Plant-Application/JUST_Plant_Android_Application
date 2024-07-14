@@ -190,10 +190,26 @@ public class TheMainActivity extends AppCompatActivity {
 
 
         menu.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
+//        logout.setOnClickListener(v -> {
+//            FirebaseAuth.getInstance().signOut();
+//            redirectToLogin();
+//            Toast.makeText(TheMainActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+//        });
+
+
+
         logout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            redirectToLogin();
-            Toast.makeText(TheMainActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(TheMainActivity.this)
+                    .setTitle("Logout")
+                    .setMessage("Are you sure you want to log out?")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        // User clicked "Yes"
+                        FirebaseAuth.getInstance().signOut();
+                        redirectToLogin();
+                        Toast.makeText(TheMainActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+                    })
+                    .setNegativeButton("No", null) // User clicked "No", so do nothing
+                    .show();
         });
 
         SetProfileImage.setOnClickListener(new View.OnClickListener() {
@@ -288,7 +304,17 @@ public class TheMainActivity extends AppCompatActivity {
 
     }//end onCreate
 
+///////////////////////////////
+@Override
+public void onBackPressed() {
+    // Do something if needed, otherwise let the default behavior happen
+    // For example, you might want to exit the app or show a confirmation dialog
+    super.onBackPressed();
+    finishAffinity(); // This will close all activities and exit the app
+}
 
+
+    ///////////////////////////
     private void deleteAccount() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {

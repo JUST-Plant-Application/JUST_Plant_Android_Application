@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="0dp"
     android:layout_gravity="bottom"
     android:background="@drawable/nav_bar_background"
     android:orientation="horizontal">
@@ -74,15 +74,16 @@
         android:id="@+id/Scan_Btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintWidth_percent="0.2"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_max="wrap"
         app:layout_constraintStart_toEndOf="@id/Diagnose_Btn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintWidth_percent="0.2"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <ImageView
             android:layout_width="87dp"

@@ -46,6 +46,7 @@ public class PlantsActivity extends AppCompatActivity {
     private PlantSAdapter plantSAdapter;
     private List<Plant> plantList;
     private FirestoreUtils firestoreUtils;
+    private TextView CName;
 
     ImageView backToCategory;
     ImageView openPlant;
@@ -64,6 +65,7 @@ public class PlantsActivity extends AppCompatActivity {
 
         plantRecyclerView = findViewById(R.id.plant_recycler_view);
         plantRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        CName = findViewById(R.id.category_name_plant);
 
         plantList = new ArrayList<>();
 
@@ -89,6 +91,7 @@ public class PlantsActivity extends AppCompatActivity {
             String categoryId = intent.getStringExtra("categoryId");
             Log.d("PlantsActivity", "Received categoryId: " + categoryId);
             if (categoryId != null) {
+                fetchCategoryName(categoryId);
                 fetchPlants(categoryId);
             } else {
                 Log.e("PlantsActivity", "Category ID is null in the intent extras.");
@@ -100,6 +103,23 @@ public class PlantsActivity extends AppCompatActivity {
         }
     }
 
+
+    ////////////
+    private void fetchCategoryName(String categoryId) {
+        firestoreUtils.getCategoryNameById(categoryId, new FirestoreUtils.FirestoreCallback() {
+            @Override
+            public void onCallback(String categoryName) {
+                if (categoryName != null) {
+                    CName.setText(categoryName);
+                } else {
+                    Log.e("PlantsActivity", "Category name not found for categoryId: " + categoryId);
+                    Toast.makeText(PlantsActivity.this, "Category name not found.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    ///
     private void fetchPlants(String categoryId) {
         firestoreUtils.fetchPlants(categoryId, plants -> {
             plantList.clear();
@@ -113,101 +133,7 @@ public class PlantsActivity extends AppCompatActivity {
         });
     }
 
-    private JSONObject createJsonRequestBody(String base64Image) {
-        JSONObject jsonRequestBody = new JSONObject();
-        try {
-            JSONArray images = new JSONArray();
-            images.put("data:image/jpg;base64," + base64Image);
 
-            jsonRequestBody.put("images", images);
-            jsonRequestBody.put("latitude", 49.207);
-            jsonRequestBody.put("longitude", 16.608);
-            jsonRequestBody.put("similar_images", true);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonRequestBody;
-    }
 
-    private void identifyPlant(Uri imageUri) {
-        try {
-            InputStream inputStream = getContentResolver().openInputStream(imageUri);
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
-            byte[] imageBytes = byteArrayOutputStream.toByteArray();
-            String base64ImageString = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
-
-            JSONObject jsonRequestBody = createJsonRequestBody(base64ImageString);
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, SERVER_URL_identify, jsonRequestBody,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-                                String accessToken = response.getString("access_token");
-                                if (accessToken == null || accessToken.isEmpty()) {
-                                    Toast.makeText(PlantsActivity.this, "Invalid access token received", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                                JSONObject result = response.getJSONObject("result");
-                                JSONArray suggestions = result.getJSONObject("classification").getJSONArray("suggestions");
-                                JSONObject firstSuggestion = suggestions.getJSONObject(0);
-                                String plantId = firstSuggestion.getString("id");
-                                Log.d("ACCESS TOKEN", "access_token: " + accessToken);
-                                Log.d("PlantID", "ID of the first plant suggestion: " + plantId);
-
-                                Intent intent = new Intent(PlantsActivity.this, DisplayIdentificationResult.class);
-                                intent.putExtra("response", response.toString());
-                                startActivity(intent);
-
-                                Retrieve_Identification(accessToken);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.e("API Error", error.toString());
-                    Toast.makeText(PlantsActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            queue.add(jsonObjectRequest);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void Retrieve_Identification(String accessToken) {
-        String url = SERVER_URL_retrieve + "/" + accessToken;
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("the response", response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("API Error", error.toString());
-                        Toast.makeText(PlantsActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + accessToken);
-                headers.put("Content-Type", "application/json");
-                return headers;
-            }
-        };
-
-        queue.add(jsonObjectRequest);
-    }
 }

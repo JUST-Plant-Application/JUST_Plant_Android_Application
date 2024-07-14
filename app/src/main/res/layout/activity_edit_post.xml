@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EditPostActivity"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     android:padding="14dp"
     android:id="@+id/main">
 
@@ -50,7 +51,7 @@
                 android:shadowColor="@color/app_green2"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:shadowRadius="20" />
 
         </LinearLayout>
@@ -71,7 +72,7 @@
                 android:text="Edit Post Image"
                 android:layout_marginBottom="11dp"
                 android:textStyle="bold"
-                android:textSize="17dp"
+                android:textSize="17sp"
                 android:fontFamily="@font/sakkal" />
 
             <androidx.cardview.widget.CardView
@@ -89,12 +90,13 @@
             </androidx.cardview.widget.CardView>
 
             <EditText
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:hint="Edit Description"
                 android:maxLines="5"
-                android:id="@+id/description" />
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 

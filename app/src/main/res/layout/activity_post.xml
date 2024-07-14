@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".PostActivity"
     android:background="@color/white"
-    android:padding="10dp"
+    android:fitsSystemWindows="true"
+    android:padding="18dp"
+
     android:id="@+id/main">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".PostActivity"
+
         android:background="@color/white">
 
         <LinearLayout
@@ -39,22 +40,22 @@
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:gravity="center"
-                android:layout_marginStart="70dp"/>
+                android:layout_marginStart="50dp"/>
 
 
             <TextView
                 android:id="@+id/done_post_btn"
                 android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:shadowColor="@color/app_green2"
+                android:shadowRadius="20"
                 android:text="POST"
                 android:textColor="@color/app_green"
-                android:shadowColor="@color/app_green2"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"
                 android:textSize="16sp"
-                android:shadowRadius="20"/>
+                android:textStyle="bold" />
 
 
 
@@ -84,6 +85,7 @@
                 android:layout_height="350dp"
                 app:cardCornerRadius="5dp"
                 android:elevation="5dp"
+                android:layout_margin="6dp"
                 android:layout_gravity="center">
                 <ImageView
                     android:layout_width="350dp"
@@ -94,12 +96,15 @@
             </androidx.cardview.widget.CardView>
 
             <EditText
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:hint="Add a Description"
-                android:maxLines="5"
-                android:id="@+id/description"/>
+                android:maxLines="10"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
