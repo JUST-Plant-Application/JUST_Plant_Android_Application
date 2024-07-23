@@ -1,0 +1,4 @@
+JUST_Plant is a great mobile app designed to help users explore, identify and manage different plant species. The app provides an easy-to-use interface with categories such as trees, vegetables, herbs, flowers, etc., providing detailed information and images for each plant. Users can search for plants, save their favorites, and even scan plants for instant recognition, or search for them.
+ Additionally, Just Plant includes a feed page where users can post questions, share experiences, and provide information about plants. Users can comment on posts, fostering a community of plant lovers and gardeners who can support each other with tips and ideas. With a focus on customization and ease of use, Just Plant aims to be the perfect companion for plant lovers.
+ And here is a DEMO explains how it works:
+https://youtu.be/5ChK_W7KA68?feature=shared 
