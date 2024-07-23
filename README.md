@@ -6,7 +6,7 @@ JUST Plant is a great mobile app designed to help users explore, identify, and m
 
 - **Plant Categories**: Explore various plant categories with detailed information and images.
 - **Search and Save**: Search for plants and save your favorites for easy access.
-- **Plant Scan**: Instantly recognize plants by scanning them with your device.
+- **Plant Scan**: Instantly recognize plants by scanning them with your device, including a health assessment feature to check the well-being of your plants.
 - **Feed Page**: Post questions, share experiences, and provide information about plants.
 - **Community Interaction**: Comment on posts, fostering a community of plant lovers and gardeners who can support each other with tips and ideas.
 
